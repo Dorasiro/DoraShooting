@@ -130,7 +130,7 @@ namespace DoraShooting.Shots
         protected new void IsOnGameArea()
         {
             // エリア外に出てない弾を動かす
-            if (!(X > -SizeX/2 && Y > -SizeY/2 && X < Form1.GameAreaWidth - SizeX/2 && Y < Form1.GameAreaHeight - SizeY/2))
+            if (IsEnable && !(X > -SizeX/2 && Y > -SizeY/2 && X < Form1.GameAreaWidth - SizeX/2 && Y < Form1.GameAreaHeight - SizeY/2))
             {
                 IsEnable = false;
             }
