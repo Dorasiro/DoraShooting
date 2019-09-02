@@ -63,7 +63,7 @@ namespace DoraShooting.Shots
                 // 角度を求める
                 lastRadian = Math.Atan2(GameMaster.Player.Y - Y, GameMaster.Player.X - X);
 
-                if((int)(Math.Sin(lastRadian) * Speed) > X)
+                if((int)(Math.Cos(lastRadian) * Speed) > X)
                 {
                     if(canMovePos == 0 || canMovePos == 1)
                     {
