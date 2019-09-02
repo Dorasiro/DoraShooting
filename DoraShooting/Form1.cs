@@ -203,7 +203,14 @@ namespace DoraShooting
 
                 foreach(var enemy in GameMaster.EnemyList.ToArray())
                 {
-                    if(enemy.IsHit(shot.isPlayer, shot.X, shot.Y, shot.SizeY))
+                    // 敵が死んでたりnullだったら飛ばす
+                    if(enemy == null || enemy.IsDead)
+                    {
+                        continue;
+                    }
+
+                    // 当たり判定のチェック　当たったら死亡フラグつけて弾が消失する
+                    if (enemy.IsHit(shot.isPlayer, shot.X, shot.Y, shot.SizeY))
                     {
                         shot.IsEnable = false;
                         enemy.IsDead = true;
